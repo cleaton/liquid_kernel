@@ -41,6 +41,16 @@ config ISP1301_OMAP
 	  This driver can also be built as a module.  If so, the module
 	  will be called isp1301_omap.
 
+config USB_ULPI
+	bool "Generic ULPI Transceiver Driver"
+	depends on ARM
+	select USB_OTG_UTILS
+	help
+	  Enable this to support ULPI connected USB OTG transceivers which
+	  are likely found on embedded boards.
+
+	  The only chip currently supported is NXP's ISP1504
+
 config TWL4030_USB
 	tristate "TWL4030 USB Transceiver Driver"
 	depends on TWL4030_CORE && REGULATOR_TWL4030
@@ -58,14 +68,5 @@ config NOP_USB_XCEIV
 	 this driver is to be used by all the usb transceiver which are either
 	 built-in with usb ip or which are autonomous and doesn't require any
 	 phy programming such as ISP1x04 etc.
-
-config USB_MSM_OTG_72K
-	bool "OTG support for Qualcomm on-chip USB controller"
-	depends on ARCH_MSM
-	select USB_OTG_UTILS
-	default USB_MSM_72K
-	help
-	  Minimal tranceiver driver which would start/stop the host/gadget
-	  depending on ID and VBUS interrupts.
 
 endif # USB || OTG
