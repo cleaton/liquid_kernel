@@ -331,8 +331,8 @@ struct msm_frame {
 };
 
 #define STAT_AEAW	0
-#define STAT_AF		1
-#define STAT_MAX	2
+//#define STAT_AF		1
+//#define STAT_MAX	2
 
 struct msm_stats_buf {
 	int type;
