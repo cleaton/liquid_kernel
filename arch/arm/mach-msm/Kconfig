@@ -836,6 +836,10 @@ config ACER_VIBRATOR
 	default n
 	tristate "LA3R5-475AC"
 
+config ACER_DEBUG
+	default n
+	tristate "Debug messages for Acer A1 board"
+
 config ACER_HEADSET_BUTT
 	tristate "ACER Headset Button driver"
 	default n

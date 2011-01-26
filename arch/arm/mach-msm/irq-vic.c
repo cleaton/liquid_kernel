@@ -472,13 +472,13 @@ void msm_irq_exit_sleep1(uint32_t irq_mask, uint32_t wakeup_reason,
 		writel(4, VIC_INT_CLEAR1);
 	}
 
-	if((readl(VIC_IRQ_STATUS1) & (0x1 << 26)) &&(!(wakeup_reason & 0x1))) {
+//	if((readl(VIC_IRQ_STATUS1) & (0x1 << 26)) &&(!(wakeup_reason & 0x1))) {
 	// software workaround for redundant USB interrupt in resuming procedure, which is
 	// caused by usb controller power down(MPP22) for power saving mechanism;
 	// It represent that waking up is not triggered by USB If wakeup_reason
 	// doesn't equal to 0x1, asking USB driver to enter LPM again.
-		redundant_usb_int = true;
-	}
+//		redundant_usb_int = true;
+//	}
 
 #endif
 
